@@ -1,0 +1,69 @@
+.btn-wrapper {
+    display: flex;
+    border: 1px solid white;
+    padding: .4em 1.5em;
+    align-items: center;
+    gap: .8em;
+    user-select: none;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    color: inherit;
+    font-family: var(--primary-font);
+    font-size: inherit;
+    transition: background .2s ease-in-out;
+
+    span {
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        transition: scale .2s ease-in-out;
+        font-weight: 500;
+        transform-origin: bottom;
+
+        img {
+            position: relative;
+            top: .08em;
+            height: 1.2em;
+            width: 1.8em;
+            object-fit: contain;               
+        }
+    }
+
+    .dark {
+        visibility: hidden;
+        position: absolute;
+        opacity: 0;
+    }
+
+
+    &:hover {
+        background: white;
+        color: black;
+
+
+        span {
+
+            scale: 1.1;
+
+            img {
+                position: relative;
+                top: .1em;
+            }
+        }
+
+        .dark {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .light {
+            visibility: hidden;
+            position: absolute;
+            opacity: 0;
+        }
+
+    }
+
+}

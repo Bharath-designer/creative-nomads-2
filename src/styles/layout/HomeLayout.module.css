@@ -1,0 +1,6 @@
+.container-full-screen {
+    height: 100vh;
+    height: 100lvh;
+    min-height: fit-content;
+    overflow: auto;
+}

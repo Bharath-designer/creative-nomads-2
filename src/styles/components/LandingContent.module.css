@@ -1,0 +1,77 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  
+
+  .left {
+    padding-left: var(--side-offset);
+    width: min-content;
+    max-width: 50%;
+    overflow: hidden;
+
+    .sub-head {
+      font-size: 1.7em;
+      font-weight: 300;
+      position: relative;
+      text-align: justify;
+
+      &::before {
+        top: 115%;
+        content: "";
+        position: absolute;
+        width: 3em;
+        height: 0.08em;
+        background: #cad1e3;
+        border-radius: 0.2em;
+      }
+    }
+
+    .heading-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: .5em;
+      font-family: var(--secondary-font);
+      font-size: 3em;
+      line-height: 1.2em;
+
+    }
+
+    .desc {
+        text-align: justify;
+        font-size: 1.4em;
+        line-height: 1.4em;
+        font-weight: 300;
+        margin: 1em 0;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 2.5em;
+      font-size: 1.2em;
+      margin-top: 2em;
+    }
+  }
+
+  .right {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: calc(var(--side-offset) + 3em);
+
+    img {
+      max-width: 70%;
+      max-height: 65%;
+      transition: scale 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform-origin: bottom;
+      cursor: grab;
+    }
+
+    img:hover {
+      scale: 1.02;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  max-height: 100vh;
+
+  .left {
+    min-width: 8em;
+    display: flex;
+    align-items: flex-start;
+    width: min(15em, 15%);
+    
+    
+    img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: min(10em,25vw);
+      min-width: auto;
+
+    }
+  }
+
+  .middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0;
+    min-width: min-content;
+    justify-content: center;
+    height: 100%;
+
+    .title {
+      font-family: var(--secondary-font);
+      font-size: 2.2em;
+    }
+
+    .desc {
+      font-size: 1.4em;
+      font-weight: 300;
+      line-height: 1.6em;
+    }
+
+    .icons-container {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(5em, 1fr));
+      gap: 2em;
+      margin-top: 2em;
+
+      .icon {
+        display: flex;
+        max-width: 7em;
+        border-radius: 50%;
+        transition: 0.3s ease-in-out;
+        transition-delay: .1s;
+
+        img {
+          width: 100%;
+          z-index: 1000;
+        }
+
+        &:hover {
+          box-shadow: 0 0 1em 0.25em rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    .get-game-btn-container {
+      margin-top: 2.5em;
+      font-size: 1.3em;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: min-content;
+      margin: auto;
+      padding-inline: 1em 5em;
+    }
+  }
+
+  .right {
+    flex: 1 0;
+    overflow: visible;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    min-width: 20em;
+    height: 100%;
+    position: relative;
+  
+
+    .game-title {
+      position: absolute;
+      font-family: var(--secondary-font);
+      right: 0;
+      bottom: 1em;
+      font-size: 2em;
+      padding: .1em .6em;
+      width: min(10em, 70%);
+      text-align: center;
+      background: red;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: linear-gradient(to right,#05081675 46%, #050816BD 74%, #050816);
+      user-select: none;
+
+      @media screen and (max-width: 900px) {
+          font-size: 1.6em;
+      }
+    }
+
+    img {
+      max-height: 80%;
+      height: 100%;
+      width: auto;
+      z-index: -10;
+    }
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      left: 50vw;
+      
+      img {
+        transform: rotate(-40deg);
+      }
+
+      .game-title {
+        display: none;
+      }
+    }
+  }
+}
