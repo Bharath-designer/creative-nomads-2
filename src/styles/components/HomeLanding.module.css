@@ -27,6 +27,7 @@
     ),
     url("../../assets/images/home_bg.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.8;
   z-index: -1;
 }
@@ -41,6 +42,7 @@
     position: relative;
     white-space: nowrap;
     gap: 2em;
+    overflow: hidden;
 }
 
 .nav-container::before {

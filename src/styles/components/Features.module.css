@@ -6,7 +6,7 @@
   width: 100%;
   min-height: fit-content;
   overflow: hidden;
-  padding: 0;
+  padding: 0 0 5em 0;
 
   .heading {
     /* flex: 2 0; */
@@ -115,7 +115,7 @@
       min-width: 30em;
 
       .side-left {
-        flex: 1 0 20em;
+        flex: 1 0 18em;
 
         .explanation-title {
           font-size: 2em;
@@ -149,7 +149,7 @@
           position: relative;
           top: -6em;
           left: -2em;
-          min-width: 8em;
+          min-width: 6em;
 
           img {
             width: 100%;
@@ -213,6 +213,10 @@
             }
           }
         }
+      }
+
+      .content-right {
+        min-width: auto;
       }
     }
   }
