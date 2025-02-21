@@ -1,10 +1,12 @@
 .container {
-  width: min(80em, 95%);
+  width: min(80em, 90%);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  overflow: visible;
+  min-height: fit-content;
+  justify-content: center;
 
   .headings {
     display: flex;
@@ -17,16 +19,26 @@
       line-height: 1.3em;
       text-align: center;
     }
+
+    @media screen and (max-width: 768px) {
+      .heading {
+        font-size: 2em;
+      }
+    }
   }
 
   .desc {
     margin-top: 1em;
     font-size: 1.5em;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.2em;
+    }
   }
 
   .images-container {
     --relative-top: -5em;
-    margin-top: calc(10em - var(--relative-top));
+    margin-top: calc(min(20%, 10em) - var(--relative-top));
     display: flex;
     justify-content: center;
     max-width: calc(100% - 3em);
@@ -37,33 +49,70 @@
       top: var(--relative-top);
       justify-content: center;
       max-width: 100%;
+      --scale-ratio: 1.45;
 
       .img-content {
+        --unfocus-opacity: .6;
+        --unfocus-boxshadow-spread: 0.2;
+        --focused-boxshadow-spread: .5;
+        --shadow-spread: 0.9;
+
         width: 20em;
         max-width: 100%;
         display: flex;
-        box-shadow: 0 0 1em 0.5em #3c52e6;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
         transition: scale 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 
         img {
           width: 100%;
           z-index: 1;
+          opacity: var(--unfocus-opacity);
+          transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
       }
 
       .img-content:nth-child(2) {
-        scale: 1.45;
+        scale: var(--scale-ratio);
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
+
         z-index: 2;
+        
+        img {
+          opacity: 1;
+        }
       }
 
       &:hover .img-content:not(:hover) {
         scale: 1;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
+
+        img {
+          opacity: var(--unfocus-opacity);
+        }
       }
 
       &:hover .img-content:hover {
-        scale: 1.45;
+        scale: var(--scale-ratio);
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
         z-index: 10;
+
+        img {
+          opacity: 1;
+        }
       }
+    }
+
+    @media screen and (max-width: 768px) {
+     
+      .img-content-container {
+        --scale-ratio: 1.4;
+
+        .img-content {
+          --unfocus-boxshadow-spread: 0.2;
+          --focused-boxshadow-spread: .35;
+        }  
+      }
+      
     }
   }
 }

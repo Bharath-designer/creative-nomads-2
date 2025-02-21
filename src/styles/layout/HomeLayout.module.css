@@ -3,4 +3,7 @@
     height: 100lvh;
     min-height: fit-content;
     overflow: auto;
+    padding: 2em 0;
+
+    /* outline: 1px solid red; */
 }

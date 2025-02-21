@@ -10,6 +10,8 @@
   --primary-font: "Darker Grotesque", sans-serif;
   --secondary-font: "Bayon", sans-serif;
   --body-clr: #050815;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 body {
