@@ -100,7 +100,6 @@
       padding: 0.1em 0.6em;
       width: min(10em, 70%);
       text-align: center;
-      background: red;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

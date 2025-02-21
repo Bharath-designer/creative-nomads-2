@@ -2,16 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
+
   --side-offset: 7em;
 
   @media screen and (max-width: 1300px) {
-    --side-offset: 4em;
+    --side-offset: 3em;
   }
 
   @media screen and (max-width: 768px) {
-    --side-offset: 3em;
-  }
-  @media screen and (max-width: 600px) {
     --side-offset: 2em;
   }
 }
@@ -60,6 +58,7 @@
   display: flex;
   align-items: center;
 
+
   img {
     cursor: pointer;
     width: 7em;
@@ -71,6 +70,7 @@
     display: flex;
     gap: 3em;
     font-size: 1.1em;
+    /* flex: 1; */
 }
 
 .middle .nav-item {

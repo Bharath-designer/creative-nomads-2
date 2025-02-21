@@ -27,7 +27,7 @@ const LandingContent = () => {
           <ActionButton text={"WATCH THE REVEAL"} icon={glasses} darkIcon={glassDark}/>
         </div>
       </div>
-      <div className={styles["right"]}>
+      <div className={styles["right-img-container"]}>
         <img draggable={false} src={ps} />
       </div>
     </div>

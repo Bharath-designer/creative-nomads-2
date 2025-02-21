@@ -2,13 +2,17 @@
   display: flex;
   flex: 1;
   align-items: center;
-  
+  flex-wrap: wrap;
+  padding: 4em 0 1em;
+  overflow: hidden;
+  min-height: min-content;
 
   .left {
     padding-left: var(--side-offset);
     width: min-content;
-    max-width: 50%;
-    overflow: hidden;
+    /* max-width: 50%; */
+    /* overflow: hidden; */
+    padding-right: 2em;
 
     .sub-head {
       font-size: 1.7em;
@@ -30,19 +34,18 @@
     .heading-container {
       display: flex;
       flex-direction: column;
-      margin-top: .5em;
+      margin-top: 0.5em;
       font-family: var(--secondary-font);
       font-size: 3em;
       line-height: 1.2em;
-
     }
 
     .desc {
-        text-align: justify;
-        font-size: 1.4em;
-        line-height: 1.4em;
-        font-weight: 300;
-        margin: 1em 0;
+      text-align: justify;
+      font-size: 1.4em;
+      line-height: 1.4em;
+      font-weight: 300;
+      margin: 1em 0;
     }
 
     .btn-container {
@@ -53,25 +56,64 @@
     }
   }
 
-  .right {
+  .right-img-container {
     flex: 1;
-    height: 100%;
     display: flex;
-    overflow: auto;
+    /* overflow: auto; */
     align-items: center;
     justify-content: flex-end;
-    padding-right: calc(var(--side-offset) + 3em);
+    padding-right: calc(var(--side-offset) + 2em);
+    /* overflow: hidden; */
+    padding-block: 3em;
 
     img {
-      max-width: 70%;
-      max-height: 65%;
+      max-width: 18em;
+      width: min(30em, 100%);
       transition: scale 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       transform-origin: bottom;
       cursor: grab;
+      min-width: 12em;
     }
 
     img:hover {
       scale: 1.02;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .right-img-container {
+      padding-right: calc(var(--side-offset) - 0em);
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .left {
+      font-size: 0.9em;
+    }
+
+    .right-img-container {
+      padding-right: calc(var(--side-offset) - 1em);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .left {
+      font-size: 0.8em;
+
+      width: min(40em, 100%);
+
+      .btn-container {
+        gap: 1.5em;
+        flex-wrap: wrap;
+        width: 15em;
+
+      }
+    }
+
+    .right-img-container {
+      padding-top: 8em;
+      border: 1px solid red;
     }
   }
 }
