@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   padding: 4em 0 1em;
   overflow: hidden;
-  min-height: min-content;
+  min-height: fit-content;
 
   .left {
     padding-left: var(--side-offset);
@@ -13,6 +13,7 @@
     /* max-width: 50%; */
     /* overflow: hidden; */
     padding-right: 2em;
+
 
     .sub-head {
       font-size: 1.7em;
@@ -65,14 +66,18 @@
     padding-right: calc(var(--side-offset) + 2em);
     /* overflow: hidden; */
     padding-block: 3em;
-
+    /* height: 100%; */
+    
     img {
-      max-width: 18em;
-      width: min(30em, 100%);
+      /* max-width: 18em; */
+      /* width: min(30em, 100%); */
       transition: scale 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       transform-origin: bottom;
       cursor: grab;
-      min-width: 12em;
+      height: 70%;
+      width: min(28em, 100%);
+      max-width: auto;
+      object-fit: contain;
     }
 
     img:hover {
@@ -113,7 +118,6 @@
 
     .right-img-container {
       padding-top: 8em;
-      border: 1px solid red;
     }
   }
 }

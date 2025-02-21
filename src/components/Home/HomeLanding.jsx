@@ -5,6 +5,10 @@ import layoutStyles from "../../styles/layout/HomeLayout.module.css";
 import ps6Logo from "../../assets/icons/ps6_logo.png";
 import preBook from "../../assets/icons/Pay.png";
 
+import {motion} from "framer-motion";
+
+import menuIcon from "../../assets/icons/menu.png"
+
 import preBookDark from "../../assets/icons/Paydark.png"
 
 import ActionButton from "./ActionButton";
@@ -36,6 +40,9 @@ const HomeLanding = () => {
         </div>
         <div className={styles["right"]}>
           <ActionButton icon={preBook} text="PRE BOOK" darkIcon={preBookDark}/>
+        </div>
+        <div className={styles["hamburger"]}>
+          <img draggable={false} src={menuIcon} alt="" />
         </div>
       </div>
       <LandingContent />

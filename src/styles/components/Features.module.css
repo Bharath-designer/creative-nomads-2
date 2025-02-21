@@ -72,13 +72,13 @@
             overflow: hidden;
             min-width: 2em;
             justify-content: center;
+            max-width: 35em;
 
             img {
               overflow: hidden;
               height: 3em;
               object-fit: cover;
               width: 100%;
-              max-width: 40em;
             }
           }
 
@@ -160,7 +160,7 @@
         .side-img {
           position: absolute;
           top: 40%;
-          transform: translateX(85%) rotate(30deg);
+          transform: translateX(80%) rotate(30deg);
           right: 0;
 
           img {
@@ -222,14 +222,28 @@
   }
 
   @media screen and (max-width: 768px) {
-    .content-left {
-      font-size: 0.95em;
-    }
 
-    .content-right {
+    .content {
 
-      .side-left {
+      
+      .content-left {
         font-size: 0.95em;
+      }
+      
+      .content-right {
+        
+        .side-left {
+          font-size: 0.95em;
+          
+        }
+        
+        .side-right {
+          
+          .side-img {
+            transform: translateX(90%) rotate(30deg);
+          }
+          
+        }
       }
     }
   }
