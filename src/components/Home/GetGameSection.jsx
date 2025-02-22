@@ -162,8 +162,8 @@ const GetGameSection = () => {
           </motion.div>
         </AnimatePresence>
         <AnimatePresence mode="wait">
-          <motion.img
-            initial={{ x: 500, y: 0, rotate: -30, opacity: 0 }}
+          <motion.div 
+          initial={{ x: 500, y: 0, rotate: -30, opacity: 0 }}
             animate={{
               x: 0,
               y: 0,
@@ -178,10 +178,11 @@ const GetGameSection = () => {
               opacity: 0,
               transition: { duration: 0.4 },
             }}
-            key={selectedImages.mainImg}
-            src={selectedImages.mainImg}
-            alt=""
-          />
+            key={selectedImages.mainImg}           
+            className={styles["right-btm-img"]}
+            style={{"--img-url": `url(${selectedImages.mainImg})`}} 
+          >
+          </motion.div>
         </AnimatePresence>
       </div>
     </div>

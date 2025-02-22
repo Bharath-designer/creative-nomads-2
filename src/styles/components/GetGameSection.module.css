@@ -15,7 +15,6 @@
 
     img {
       width: 100%;
-
     }
 
     &::before {
@@ -129,21 +128,40 @@
         #050816
       );
       user-select: none;
+      z-index: 999;
 
       @media screen and (max-width: 900px) {
         font-size: 1.6em;
       }
     }
 
-    img {
+    .right-btm-img {
       max-height: 80%;
       height: 100%;
       width: auto;
+      background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 0,
+        rgba(5, 8, 24, 0.39) 8%,
+        rgba(0, 0, 0, 0) 15%,
+        rgba(0, 0, 0, 0) 100%
+      ), var(--img-url); 
+    
+        background-size: cover;
+        width: 100%;
     }
 
     @media screen and (max-width: 768px) {
       position: absolute;
-      left: 50vw;
+      /* left: 50vw; */
+      right: 0;
+      
+      .right-btm-img {
+        position: absolute;
+        max-width: 50vw;
+        right: 0;
+
+      }
 
       img {
         transform: rotate(-40deg);
