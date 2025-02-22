@@ -89,33 +89,33 @@ const GetGameSection = () => {
   }, []);
 
   return (
-    <div id="games"
+    <div
+      id="games"
       className={`${styles["container"]} ${layoutStyles["container-full-screen"]}`}
     >
-      <div className={styles["left"]}>
-        <AnimatePresence mode="wait">
-          <motion.img
-            initial={{ x: -300, y: -200, rotate: 50, opacity: 0 }}
-            animate={{
-              x: 0,
-              y: 0,
-              rotate: 0,
-              opacity: 1,
-              transition: { duration: 0.6 },
-            }}
-            exit={{
-              y: -200,
-              x: -300,
-              rotate: 50,
-              opacity: 0,
-              transition: { duration: 0.4 },
-            }}
-            key={selectedImages.sideImg}
-            src={selectedImages.sideImg}
-            alt=""
-          />
-        </AnimatePresence>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          initial={{ x: -300, y: -200, rotate: 50, opacity: 0 }}
+          animate={{
+            x: 0,
+            y: 0,
+            rotate: 0,
+            opacity: 1,
+            transition: { duration: 0.6 },
+          }}
+          exit={{
+            y: -200,
+            x: -300,
+            rotate: 50,
+            opacity: 0,
+            transition: { duration: 0.4 },
+          }}
+          key={selectedImages.sideImg}
+          className={styles["left"]}
+        >
+          <motion.img src={selectedImages.sideImg} alt="" />
+        </motion.div>
+      </AnimatePresence>
       <div className={styles["middle"]}>
         <div className={styles["title"]}>Play Your Way !</div>
         <div className={styles["desc"]}>
@@ -134,29 +134,33 @@ const GetGameSection = () => {
           ))}
         </div>
         <div className={styles["get-game-btn-container"]}>
-          <ActionButton text={"GET GAME NOW"} icon={controllerIcon} darkIcon={controllerIconDark}/>
+          <ActionButton
+            text={"GET GAME NOW"}
+            icon={controllerIcon}
+            darkIcon={controllerIconDark}
+          />
         </div>
       </div>
       <div className={styles["right"]}>
         <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedImages.game}
-          initial={{ opacity: 0, right: 150 }}
-          animate={{
-            opacity: 1,
-            right: 0,
-            transition: { duration: 0.3, delay: .3 },
-          }}
-          exit={{
-            opacity: 0,
-            right: 150,
-            transition: { duration: 0.3 },
-          }}
-          className={styles["game-title"]}
-        >
-          {selectedImages.game}
-        </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={selectedImages.game}
+            initial={{ opacity: 0, right: 150 }}
+            animate={{
+              opacity: 1,
+              right: 0,
+              transition: { duration: 0.3, delay: 0.3 },
+            }}
+            exit={{
+              opacity: 0,
+              right: 150,
+              transition: { duration: 0.3 },
+            }}
+            className={styles["game-title"]}
+          >
+            {selectedImages.game}
+          </motion.div>
+        </AnimatePresence>
         <AnimatePresence mode="wait">
           <motion.img
             initial={{ x: 500, y: 0, rotate: -30, opacity: 0 }}
