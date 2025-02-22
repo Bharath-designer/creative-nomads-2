@@ -6,13 +6,33 @@ import ActionButton from "./ActionButton";
 import preBook from "../../assets/icons/Pay.png";
 import preBookDark from "../../assets/icons/Paydark.png";
 import glasses from "../../assets/icons/Glasses.png";
-import glassDark from "../../assets/icons/Glasses-dark.png"
+import glassDark from "../../assets/icons/Glasses-dark.png";
 import ps from "../../assets/images/ps_landing_image.png";
 
-const LandingContent = () => {
+import { motion } from "framer-motion";
+
+const LandingContent = ({rootDelay}) => {
+
+  const currentDelay = rootDelay + 0.5;
+  const animationDuration = .5;
+
   return (
     <div id="playstation" className={styles["wrapper"]}>
-      <div className={styles["left"]}>
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{
+          y: 0,
+          x:0,
+          opacity: 1,
+          transition: {
+            type: "tween",
+            delay: currentDelay,
+            duration: animationDuration,
+            ease:"easeOut"
+          },
+        }}
+        className={styles["left"]}
+      >
         <div className={styles["sub-head"]}>The Future of Gaming Is Here</div>
         <div className={styles["heading-container"]}>
           Introducing PlayStation 6 with Power and Precision
@@ -23,13 +43,35 @@ const LandingContent = () => {
           Before, Redefining What's Possible in the World of Play.
         </div>
         <div className={styles["btn-container"]}>
-          <ActionButton text={"PRE BOOK"} icon={preBook} darkIcon={preBookDark}/>
-          <ActionButton text={"WATCH THE REVEAL"} icon={glasses} darkIcon={glassDark}/>
+          <ActionButton
+            text={"PRE BOOK"}
+            icon={preBook}
+            darkIcon={preBookDark}
+          />
+          <ActionButton
+            text={"WATCH THE REVEAL"}
+            icon={glasses}
+            darkIcon={glassDark}
+          />
         </div>
-      </div>
-      <div className={styles["right-img-container"]}>
+      </motion.div>
+      <motion.div 
+      initial={{ x: 100, opacity: 0 }}
+      animate={{
+        y: 0,
+        x:0,
+        opacity: 1,
+        transition: {
+          type: "tween",
+          delay: currentDelay ,
+          duration: animationDuration,
+          ease:"easeOut"
+
+        },
+      }}
+      className={styles["right-img-container"]}>
         <img draggable={false} src={ps} />
-      </div>
+      </motion.div>
     </div>
   );
 };

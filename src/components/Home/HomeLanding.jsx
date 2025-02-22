@@ -12,6 +12,8 @@ import preBookDark from "../../assets/icons/Paydark.png";
 import ActionButton from "./ActionButton";
 import LandingContent from "./LandingContent";
 
+import { motion } from "framer-motion";
+
 const HomeLanding = () => {
   const [isNavShown, setIsNavShown] = useState(true);
 
@@ -33,19 +35,42 @@ const HomeLanding = () => {
         return;
       }
       setIsNavShown(false);
-    }
-    );
+    });
   }, []);
 
   const toggleNav = () => {
     setIsNavShown(!isNavShown);
   };
 
+
+  const parentDuration = 1;
+  const rootDelay = parentDuration + 0.5;
+
+
   return (
-    <div
+    <motion.div
+    initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: {
+            duration: parentDuration,
+            delay: 0.5,
+          },
+        }}
       className={`${styles["container"]} ${layoutStyles["container-full-screen"]}`}
     >
-      <div className={styles["nav-container"]}>
+      <motion.div
+        initial={{ y: -30, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: {
+            type: "tween",
+            delay: rootDelay,
+          },
+        }}
+        className={styles["nav-container"]}
+      >
         <div className={styles["left"]}>
           <img draggable={false} src={ps6Logo} />
         </div>
@@ -74,9 +99,9 @@ const HomeLanding = () => {
         <div className={styles["hamburger"]}>
           <img onClick={toggleNav} draggable={false} src={menuIcon} alt="" />
         </div>
-      </div>
-      <LandingContent />
-    </div>
+      </motion.div>
+      <LandingContent rootDelay={rootDelay}/>
+    </motion.div>
   );
 };
 
