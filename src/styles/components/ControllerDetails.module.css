@@ -52,9 +52,9 @@
       --scale-ratio: 1.45;
 
       .img-content {
-        --unfocus-opacity: .6;
+        --unfocus-opacity: 0.6;
         --unfocus-boxshadow-spread: 0.2;
-        --focused-boxshadow-spread: .5;
+        --focused-boxshadow-spread: 0.28;
         --shadow-spread: 0.9;
 
         position: relative;
@@ -62,8 +62,10 @@
         width: 20em;
         max-width: 100%;
         display: flex;
-        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
-        transition: scale 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), transform .4s ease-in-out;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em)
+          calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
+        transition: scale 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+          transform 0.4s ease-in-out;
 
         img {
           width: 100%;
@@ -82,10 +84,11 @@
 
       .img-content:nth-child(2) {
         scale: var(--scale-ratio);
-        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em)
+          calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
 
         z-index: 2;
-        
+
         img {
           opacity: 1;
         }
@@ -93,7 +96,8 @@
 
       &:hover .img-content:not(:hover) {
         scale: 1;
-        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em)
+          calc(var(--unfocus-boxshadow-spread) * 1em) #3c52e6;
 
         img {
           opacity: var(--unfocus-opacity);
@@ -105,12 +109,12 @@
         &:nth-child(3) {
           transform: translateX(0em);
         }
-
       }
 
       &:hover .img-content:hover {
         scale: var(--scale-ratio);
-        box-shadow: 0 0 calc(var(--shadow-spread) * 1em) calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
+        box-shadow: 0 0 calc(var(--shadow-spread) * 1em)
+          calc(var(--focused-boxshadow-spread) * 1em) #3c52e6;
         z-index: 10;
 
         img {
@@ -120,16 +124,19 @@
     }
 
     @media screen and (max-width: 768px) {
-     
       .img-content-container {
         --scale-ratio: 1.4;
 
         .img-content {
           --unfocus-boxshadow-spread: 0.2;
-          --focused-boxshadow-spread: .35;
-        }  
+          --focused-boxshadow-spread: 0.35;
+        }
       }
-      
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    max-height: fit-content;
+    min-height: auto;
   }
 }

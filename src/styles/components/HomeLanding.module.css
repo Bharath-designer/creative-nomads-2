@@ -2,9 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
+  padding: 0em !important;
   --side-offset: 7em;
-
 
   @media screen and (max-width: 1300px) {
     --side-offset: 3em;
@@ -33,15 +32,23 @@
 }
 
 .nav-container {
+  /* border: 1px solid red; */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em 0 1.5em;
+  padding: 3em 0 2em;
   margin: 0 var(--side-offset);
   position: relative;
   white-space: nowrap;
   gap: 2em;
   overflow: visible;
+
+
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    padding-inline: 1em !important;
+  }
 }
 
 .nav-container::before {
@@ -101,22 +108,22 @@
   }
 
   .middle {
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     top: 0;
     right: 0;
+    left: 0;
     gap: 0;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(0.8em);
+    backdrop-filter: blur(.7em);
     z-index: 999;
     border-radius: 0.5em;
     overflow: hidden;
     align-items: flex-start;
+    margin: 1em;
 
     /* display: none; */
 
-    left: 0;
-    /* width: min(100%, 15em); */
 
     box-shadow: 0 0 1em 1px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.181);
