@@ -85,7 +85,7 @@ const FeaturesSection = () => {
                     ease: "anticipate",
                   },
                 }}
-                viewport={{once: true, amount: 0.2}}
+                viewport={{once: true, amount: 0.1}}
                 onMouseEnter={() => handleMouseEnter(index)}
                 style={{ "--index": index - 1 }}
                 key={index}

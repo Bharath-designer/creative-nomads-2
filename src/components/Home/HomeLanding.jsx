@@ -51,12 +51,12 @@ const HomeLanding = () => {
 
   return (
     <motion.div
-    initial={{ opacity: .1 }}
+    initial={{ opacity: .001 }}
         animate={{
           opacity: 1,
           transition: {
             duration: parentDuration,
-            delay: 0.5,
+            delay:.5
           },
         }}
       className={`${styles["container"]} ${layoutStyles["container-full-screen"]}`}
