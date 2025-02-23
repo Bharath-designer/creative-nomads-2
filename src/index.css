@@ -7,6 +7,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.hide-cursor,
+.hide-cursor *,
+.hide-cursor *::before,
+.hide-cursor *::after {
+  cursor: none !important;
+}
+
 :root {
   --primary-font: "Darker Grotesque", sans-serif;
   --secondary-font: "Bayon", sans-serif;
@@ -20,4 +27,77 @@ body {
   background: var(--body-clr);
   color: white;
   overflow-x: hidden;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(0.1em);
+  z-index: 9999999;
+  pointer-events: none;
+
+  /* background: url("./assets/icons/cursor.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.cursor-options {
+  position: fixed;
+  top: 10em;
+  width: fit-content;
+  height: fit-content;
+  backdrop-filter: blur(0.2em);
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+  border-radius: 0.3em;
+  user-select: none;
+  padding-right: 1em;
+  width: 1em;
+  height: 2em;
+  
+  
+  .toggle-cur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3.5em;
+    /* border: 1px solid white; */
+    padding: 0.1em 0.3em;
+    border-radius: 0.2em;
+    display: flex;
+    background:  rgba(255, 255, 255, 0.3);
+    justify-content: center;
+    /* border: 1px solid red; */
+    opacity: 0.5;
+    transition: .2s linear;
+    transform: translateX(-97%);
+    
+
+    img {
+      height: 1.8em;
+    }
+  }
+
+  &.active {
+
+    .toggle-cur {
+      border: 1px solid rgba(255, 255, 255, 0.632);
+      border-left: transparent;
+      background: transparent;
+    }
+  }
+
+  &:hover .toggle-cur, &.expanded .toggle-cur {
+    /* left: -.4em; */
+    transform: translateX(-5%);
+    opacity: .5;
+
+  }
 }

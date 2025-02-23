@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 const LandingContent = ({rootDelay}) => {
 
   const currentDelay = rootDelay + 0.5;
-  const animationDuration = .5;
+  const animationDuration = .6;
 
   return (
     <div id="playstation" className={styles["wrapper"]}>

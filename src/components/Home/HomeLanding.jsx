@@ -34,7 +34,9 @@ const HomeLanding = () => {
       if (e.target.closest(`.${styles["nav-container"]}`)) {
         return;
       }
-      setIsNavShown(false);
+      if (window.innerWidth <= 1100) {
+        setIsNavShown(false);
+      }
     });
   }, []);
 
@@ -49,7 +51,7 @@ const HomeLanding = () => {
 
   return (
     <motion.div
-    initial={{ opacity: 0 }}
+    initial={{ opacity: .1 }}
         animate={{
           opacity: 1,
           transition: {

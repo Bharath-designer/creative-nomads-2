@@ -55,7 +55,7 @@ const FeaturesSection = () => {
   const initialX = -150;
   const exitX = 100;
   const motionOpacity = 0;
-  const enterExitDuration = .4;
+  const enterExitDuration = 0.4;
   const enterDelay = 0;
 
   const motionTransition = {
@@ -65,7 +65,8 @@ const FeaturesSection = () => {
   };
 
   return (
-    <div id="features"
+    <div
+      id="features"
       className={`${styles["container"]} ${layoutStyles["container-full-screen"]}`}
     >
       <div className={styles["heading"]}>Revolutionary Features</div>
@@ -73,7 +74,18 @@ const FeaturesSection = () => {
         <div className={styles["content-left"]}>
           <div className={styles["feature-rows-container"]}>
             {data.map((item, index) => (
-              <div
+              <motion.div
+                initial={{ x: -40, opacity: 0 }}
+                whileInView={{
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: index * 0.2,
+                    duration: 0.8,
+                    ease: "anticipate",
+                  },
+                }}
+                viewport={{once: true, amount: 0.2}}
                 onMouseEnter={() => handleMouseEnter(index)}
                 style={{ "--index": index - 1 }}
                 key={index}
@@ -83,7 +95,7 @@ const FeaturesSection = () => {
                   <img src={item.image} alt="" />
                 </div>
                 <div className={styles["feature-title"]}>{item.title}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -93,8 +105,19 @@ const FeaturesSection = () => {
               <motion.div
                 key={selectedFeature.title}
                 initial={{ x: initialX, opacity: motionOpacity }}
-                exit={{ x: exitX, opacity: motionOpacity, transition: {duration : enterExitDuration} }}
-                animate={{ x: 0, opacity: 1, transition: {duration : enterExitDuration, delay: enterDelay} }}
+                exit={{
+                  x: exitX,
+                  opacity: motionOpacity,
+                  transition: { duration: enterExitDuration },
+                }}
+                animate={{
+                  x: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: enterExitDuration,
+                    delay: enterDelay,
+                  },
+                }}
                 transition={motionTransition}
               >
                 <div className={styles["explanation-title"]}>
@@ -106,7 +129,11 @@ const FeaturesSection = () => {
               </motion.div>
             </AnimatePresence>
             <motion.div className={styles["explanation-btn"]}>
-              <ActionButton text={"LEARN MORE"} icon={pointer_icon} darkIcon={pointerIconDark}/>
+              <ActionButton
+                text={"LEARN MORE"}
+                icon={pointer_icon}
+                darkIcon={pointerIconDark}
+              />
             </motion.div>
           </div>
           <div className={styles["side-right"]}>
