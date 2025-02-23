@@ -58,11 +58,12 @@ const Home = () => {
       console.error("ERROR getting value from localstorage");
     }
     
-    if (currentCount > 3) {
+    localStorage.setItem("count",currentCount+1)
+    
+    if (currentCount > 2) {
       return;
     }
 
-    localStorage.setItem("count",currentCount+1)
 
     setTimeout(() => {
       const cursorOptions = document.querySelector(".cursor-options");
